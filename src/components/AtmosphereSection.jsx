@@ -1,10 +1,10 @@
 import solarStorm from '/solar_storm.webp'
-import { motion, useMotionValueEvent, useTransform } from 'motion/react'
+import { motion, useTransform } from 'motion/react'
 import { useScroll } from 'motion/react';
 import { useRef } from'react';
 
 export default function AtmosphereSection() {
-    const atmoRef = useRef(null)
+  const atmoRef = useRef(null)
 
   // listen scroll progress
   const {scrollYProgress} = useScroll({
@@ -13,11 +13,6 @@ export default function AtmosphereSection() {
   });
 
   const textPositionY = useTransform(scrollYProgress, [0.2, 0.8], ['0%', '-80%'])
-
-  useMotionValueEvent(scrollYProgress, 'change', (latest) => {
-    console.log('scrollYProgress:', latest)  
-  })
-
 
   return (
     <>

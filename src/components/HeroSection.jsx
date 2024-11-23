@@ -60,10 +60,13 @@ export default function HeroSection() {
   
   return (
     <div className='relative w-full h-[3600px]' ref={scrollRef}>
-      <canvas ref={canvasRef} className='fixed w-full'></canvas>
+      <canvas ref={canvasRef} className='fixed w-full h-screen'></canvas>
       <motion.div className='sticky top-1/3 w-full text-center' style={{opacity: heroTitleOpacity}}>
         <h1 className='text-[200px] text-white'>Mars</h1>
       </motion.div>
+      <div className="fixed text-4xl p-4 ps-6 top-0 text-white">
+        Mars
+      </div>
     </div>
   )
 }

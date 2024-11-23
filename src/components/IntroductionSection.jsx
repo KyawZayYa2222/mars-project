@@ -1,4 +1,4 @@
-import { motion, useMotionValueEvent, useTransform } from 'motion/react'
+import { motion, useTransform } from 'motion/react'
 import pngMarsPlanet from '/png_mars_planet.png'
 import { useScroll } from 'motion/react';
 import { useRef } from'react';
@@ -14,10 +14,6 @@ export default function IntroductionSection() {
 
   const textPositionY = useTransform(scrollYProgress, [0.2, 0.8], ['0%', '-80%'])
 
-
-  useMotionValueEvent(scrollYProgress, 'change', (latest) => {
-    console.log('scrollYProgress:', latest)  
-  })
 
   return (
     <>
