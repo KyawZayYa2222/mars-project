@@ -12,25 +12,35 @@ export default function Missions() {
     offset: ['start start', 'end center']
   });
 
-  const imageConPositionY = useTransform(scrollYProgress, [0.2, 1], ['0%', '-98%'])
+  const imageConPositionY = useTransform(scrollYProgress, [0.2, 1], ['0%', '-80%'])
+  // const imageConPositionX = useTransform(scrollYProgress, [1, 0.9], ['0%', '-80%'])
 
   return (
     <>
-    <div className='relative bg-white w-full h-[3200px]' ref={missionRef}>
-        <div className='sticky top-0 grid grid-cols-2 gap-4 h-screen'>
-            <div className="relative w-3/4 h-screen overflow-hidden">
-                <motion.div style={{y: imageConPositionY}} className="absolute top-0">
+    <div className='relative bg-white w-full h-screen xl:h-[3200px]' ref={missionRef}>
+        <div className='sticky top-0 grid grid-cols-1 lg:grid-cols-5 xl:grid-cols-2 gap-4 h-screen'>
+            <div className="col-span-1 lg:col-span-2 xl:col-span-1 relative h-full overflow-y-hidden overflow-x-scroll">
+                <motion.div style={{y: imageConPositionY}} className="hidden lg:block absolute top-0">
                 {
                     imgIndexs && imgIndexs.map(imgIndex =>
                         <img className='w-full'  key={imgIndex} src={"/mission_img"+imgIndex+".jpg"} alt={'mission_image'+imgIndex}/>
                     )
                 }
                 </motion.div>
+
+                <div className="block lg:hidden flex w-full h-full absolute top-0">
+                {
+                    imgIndexs && imgIndexs.map(imgIndex =>
+                        <img className='w-full'  key={imgIndex} src={"/mission_img"+imgIndex+".jpg"} alt={'mission_image'+imgIndex}/>
+                    )
+                }
+                </div>
             </div>
 
-            <div className='flex flex-col justify-center'>
+            <div className='col-span-1 lg:col-span-3 xl:col-span-1 flex flex-col justify-center items-center'>
+                <div className='px-4'>
                 <h1 className='text-6xl mb-10'>Missions</h1>
-                <div className="w-[600px]">
+                <div className="xl:w-[600px]">
                 <p className='mb-2'>
                 Mars has always intrigued humanity, leading to numerous missions to explore its mysteries. Countries like the United States, Europe, India, China, and others have launched spacecraft to study Mars' surface, atmosphere, and potential for life.
                 </p>
@@ -45,6 +55,7 @@ export default function Missions() {
                   <li>Operating the first helicopter, Ingenuity, on another planet.</li>
                 </ul>
                 <p>These achievements bring us closer to understanding Mars' history and its potential for human colonization.</p>
+                </div>
                 </div>
             </div>
         </div>

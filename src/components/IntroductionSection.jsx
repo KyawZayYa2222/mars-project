@@ -18,15 +18,15 @@ export default function IntroductionSection() {
   return (
     <>
     <div className='relative bg-white w-full h-[3000px]' ref={introRef}>
-        <div className='sticky top-0 grid grid-cols-2 gap-4 h-screen'>
+        <div className='sticky top-0 grid grid-cols-1 xl:grid-cols-2 gap-4 h-screen'>
             <div className='flex justify-center items-center h-full'>
                 <motion.img src={pngMarsPlanet} 
-                className='w-96' alt="mars planet img" 
+                className='w-80 xl:w-96' alt="mars planet img" 
                 animate={{rotate: 360}}
                 transition={{duration: 26, repeat: Infinity, ease: 'linear' }}
                 />
             </div>
-            <div className='flex flex-col justify-center'>
+            <div className='flex flex-col justify-center items-center'>
                 <h1 className='text-6xl mb-10'>Introduction</h1>
                 <div className='relative text-lg max-w-[560px] h-[240px] overflow-y-hidden'>
                     <div className="sticky z-20 top-0 w-full h-10 bg-gradient-to-b from-white to-transparent"/>
