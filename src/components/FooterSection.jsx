@@ -1,4 +1,4 @@
-import MarsBg01 from '/mars_bg02.png';
+import MarsBg01 from '/mars_bg02-min.png';
 
 export default function FooterSection() {
   return (

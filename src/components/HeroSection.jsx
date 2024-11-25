@@ -16,10 +16,12 @@ export default function HeroSection() {
   // Load frame images from server 
   const frames = useMemo(() => {
     const loadedFrames = []
-    for(let i = 1; i <= 141; i++) {
-      const loadedFrameImg = new Image()
-      loadedFrameImg.src = `/frames/ezgif-frame-${i}.png`
-      loadedFrames.push(loadedFrameImg)
+    for(let i = 1; i <= 142; i++) {
+      if(i % 3 !== 0) {
+        const loadedFrameImg = new Image()
+        loadedFrameImg.src = `/frames/ezgif-frame-${i}-min.png`
+        loadedFrames.push(loadedFrameImg)
+      }
     }
 
     setIsLoadedFrames(true)
@@ -29,13 +31,14 @@ export default function HeroSection() {
 
   // render function 
   const render = useCallback((index) => {
-    if(frames[index-1]) {
+    // index = index * 3;
+    if(index <= frames.length && index%3 !== 0) {
       canvasRef.current.width = 2048
       canvasRef.current.height = 1080
       const ctx = canvasRef.current.getContext('2d')
       ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height)
       ctx.drawImage(frames[index - 1], 0, 0, canvasRef.current.width, canvasRef.current.height)
-      // console.log('Drawing frame:', frames[index - 1].src)
+      console.log('Drawing frame:', frames[index - 1].src)
     }
   }, [frames])
 
@@ -50,7 +53,7 @@ export default function HeroSection() {
 
 
   // useMotionValueEvent to listen to scroll events and trigger render function
-  const currentFrameIndex = useTransform(scrollYProgress, [0, 1], [1, 141])
+  const currentFrameIndex = useTransform(scrollYProgress, [0, 1], [1, 142])
   const heroTitleOpacity = useTransform(scrollYProgress, [0.4, 0.5, 1], [0, 0.8, 1])
 
   useMotionValueEvent(currentFrameIndex, 'change', (latest) => {
@@ -59,7 +62,7 @@ export default function HeroSection() {
   })
   
   return (
-    <div className='relative w-full h-[3600px]' ref={scrollRef}>
+    <div className='relative w-full h-[3200px]' ref={scrollRef}>
       <canvas ref={canvasRef} className='fixed min-w-[1600px] w-full h-screen'></canvas>
       <motion.div className='sticky top-1/3 w-full text-center' style={{opacity: heroTitleOpacity}}>
         <h1 className=' text-9xl md:text-[200px] text-white' style={{fontFamily: 'Saira'}}>Mars</h1>

@@ -17,11 +17,10 @@ export default function AtmosphereSection() {
   return (
     <>
     <div className='relative bg-white w-full h-[3000px]' ref={atmoRef}>
-        <div className='sticky top-0 grid grid-cols-1 xl:grid-cols-2 gap-2 lg:gap-4 h-screen px-10'>
-            <div className='flex flex-col justify-center'>
-                
+        <div className='sticky top-0 grid grid-cols-1 xl:grid-cols-2 gap-2 lg:gap-4 h-screen px-6'>
+            <div className='flex flex-col justify-center items-center'>
                 <div className='text-lg mx-auto'>
-                    <h1 className='text-6xl mb-10'>Atmosphere</h1>
+                    <h1 className='text-5xl sm:text-6xl mb-10'>Atmosphere</h1>
                     <div className="relative text-lg max-w-[560px] h-[240px] overflow-y-hidden">
                     <div className="sticky z-20 top-0 w-full h-10 bg-gradient-to-b from-white to-transparent"/>
                         <motion.div style={{y: textPositionY}}>
