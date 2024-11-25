@@ -17,11 +17,10 @@ export default function AtmosphereSection() {
   return (
     <>
     <div className='relative bg-white w-full h-[3000px]' ref={atmoRef}>
-        <div className='sticky top-0 grid grid-cols-2 gap-4 h-screen'>
-            <div className='flex flex-col justify-center ps-12'>
-                
+        <div className='sticky top-0 grid grid-cols-1 xl:grid-cols-2 gap-2 lg:gap-4 h-screen px-6'>
+            <div className='flex flex-col justify-center items-center'>
                 <div className='text-lg mx-auto'>
-                    <h1 className='text-6xl mb-10'>Atmosphere</h1>
+                    <h1 className='text-5xl sm:text-6xl mb-10'>Atmosphere</h1>
                     <div className="relative text-lg max-w-[560px] h-[240px] overflow-y-hidden">
                     <div className="sticky z-20 top-0 w-full h-10 bg-gradient-to-b from-white to-transparent"/>
                         <motion.div style={{y: textPositionY}}>
@@ -52,9 +51,9 @@ export default function AtmosphereSection() {
             </div>
 
             <div className='flex flex-col justify-center items-center w-full h-full'>
-                <div className='w-[720px]'>
+                <div className='w-full md:w-[600px] xxl:w-[720px]'>
                 <img src={solarStorm} 
-                className='' alt="mars planet img" 
+                className='w-full p-4' alt="mars planet img" 
                 />
                 <small className='italic'>
                 The specks in the sequence of images in this video were caused by charged particles from a solar storm hitting one of the navigation cameras aboard NASA's Curiosity Mars rover. 
